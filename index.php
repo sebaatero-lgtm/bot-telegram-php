@@ -12,25 +12,25 @@ if (!$update) {
 $chat_id = $update["message"]["chat"]["id"];
 $text = strtolower($update["message"]["text"] ?? "");
 
-$respuesta = "No entiendo";
+$respuesta = "No entiendo, Vuelve a preguntar";
 
 if ($text == "/start") {
-    $respuesta = "Hola, soy tu bot";
+    $respuesta = "Hola, soy tu bot, Que deseas buscar?";
 }
 elseif (strpos($text, "carne") !== false || strpos($text, "queso") !== false) {
-    $respuesta = "Pasillo 1";
+    $respuesta = "Se encuentra en el Pasillo 1";
 }
 elseif (strpos($text, "leche") !== false) {
-    $respuesta = "Pasillo 2";
+    $respuesta = "Se encuentra en el Pasillo 2";
 }
 elseif (strpos($text, "bebida") !== false) {
-    $respuesta = "Pasillo 3";
+    $respuesta = "Se encuentra en el Pasillo 3";
 }
 elseif (strpos($text, "pan") !== false) {
-    $respuesta = "Pasillo 4";
+    $respuesta = "Se encuentra en el Pasillo 4";
 }
 elseif (strpos($text, "detergente") !== false) {
-    $respuesta = "Pasillo 5";
+    $respuesta = "Se encuentra en el Pasillo 5";
 }
 
 file_get_contents("https://api.telegram.org/bot$token/sendMessage?chat_id=$chat_id&text=" . urlencode($respuesta));
